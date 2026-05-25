@@ -1,5 +1,4 @@
 import os
-import csv
 import torch
 from torch.utils.data import Dataset
 from torchvision import transforms
@@ -8,15 +7,13 @@ from PIL import Image
 
 def load_split(csv_path, class_to_idx):
     """CSV'den sadece seçili class'lara ait (video_id, label) çiftlerini döndürür."""
+    import pandas as pd
+    df = pd.read_csv(csv_path)
     samples = []
-    with open(csv_path, newline="") as f:
-        reader = csv.reader(f, delimiter=";")
-        for row in reader:
-            if len(row) < 2:
-                continue
-            video_id, label = row[0].strip(), row[1].strip()
-            if label in class_to_idx:
-                samples.append((video_id, class_to_idx[label]))
+    for _, row in df.iterrows():
+        label = str(row["label"]).strip()
+        if label in class_to_idx:
+            samples.append((str(int(row["video_id"])), class_to_idx[label]))
     return samples
 
 

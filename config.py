@@ -24,7 +24,7 @@ LEARNING_RATE = 1e-4
 WEIGHT_DECAY = 1e-4
 
 # Kaggle paths
-DATA_ROOT_TRAIN = "/kaggle/input/20bn-jester/Train"
-DATA_ROOT_VAL   = "/kaggle/input/20bn-jester/Validation"
-TRAIN_CSV       = "/kaggle/input/20bn-jester/Train.csv"
-VAL_CSV         = "/kaggle/input/20bn-jester/Validation.csv"
+DATA_ROOT_TRAIN = "/kaggle/input/datasets/toxicmender/20bn-jester/Train"
+DATA_ROOT_VAL   = "/kaggle/input/datasets/toxicmender/20bn-jester/Validation"
+TRAIN_CSV       = "/kaggle/input/datasets/toxicmender/20bn-jester/Train.csv"
+VAL_CSV         = "/kaggle/input/datasets/toxicmender/20bn-jester/Validation.csv"
