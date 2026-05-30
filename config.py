@@ -1,30 +1,30 @@
 GESTURE_CLASSES = [
-    "Swiping Left",
-    "Swiping Right",
-    "Swiping Up",
-    "Swiping Down",
-    "Thumb Up",
-    "Thumb Down",
-    "Zooming In With Full Hand",
-    "Zooming Out With Full Hand",
+    "Doing other things",
+    "Drumming Fingers",
+    "No gesture",
+    "Pulling Hand In",
+    "Pulling Two Fingers In",
+    "Pushing Hand Away",
+    "Pushing Two Fingers Away",
+    "Rolling Hand Backward",
+    "Rolling Hand Forward",
+    "Shaking Hand",
 ]
 
 CLASS_TO_IDX = {cls: i for i, cls in enumerate(GESTURE_CLASSES)}
-NUM_CLASSES = len(GESTURE_CLASSES)
+NUM_CLASSES  = len(GESTURE_CLASSES)
 
-# Input shape
-NUM_FRAMES = 37
-IMG_SIZE = 112          # R3D-18 için 112x112, CNN-LSTM için 224x224
-LANDMARK_DIM = 63       # 21 keypoints x 3 (x, y, z)
+NUM_FRAMES  = 37
+IMG_SIZE    = 224
 
-# Training
-BATCH_SIZE = 16
-NUM_EPOCHS = 20
-LEARNING_RATE = 1e-4
+BATCH_SIZE  = 16
+NUM_EPOCHS  = 15
+LR          = 1e-4
 WEIGHT_DECAY = 1e-4
 
-# Kaggle paths
-DATA_ROOT_TRAIN = "/kaggle/input/datasets/toxicmender/20bn-jester/Train"
-DATA_ROOT_VAL   = "/kaggle/input/datasets/toxicmender/20bn-jester/Validation"
-TRAIN_CSV       = "/kaggle/input/datasets/toxicmender/20bn-jester/Train.csv"
-VAL_CSV         = "/kaggle/input/datasets/toxicmender/20bn-jester/Validation.csv"
+# Kaggle paths (zip Kaggle'a yüklendikten sonra güncelle)
+BASE        = "/kaggle/input/jester-subset/Jester20bn_subset"
+TRAIN_ROOT  = f"{BASE}/train_subset"
+VAL_ROOT    = f"{BASE}/val_subset"
+TRAIN_CSV   = f"{BASE}/train_subset/train_subset.csv"
+VAL_CSV     = f"{BASE}/val_subset/val_subset.csv"
